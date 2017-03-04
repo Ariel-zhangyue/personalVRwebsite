@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ZHANG Yue</title>
+    <meta name="description" content="VRselfWebsite">
+    <script src="js/aframe.js"></script>
+    <script src="js/build.js"></script>
+    <script src="js/aframe-animation-component.js"></script>
+    <script src="js/aframe-event-set-component.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-layout-component/master/dist/aframe-layout-component.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-template-component/master/dist/aframe-template-component.min.js"></script>
+    <script src="js/set-image.js"></script>
+    <script src="js/update-raycaster.js"></script>
+    <script src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202_Bold%20Italic.js"></script>
+
+  </head>
+  <body>
+    <a-scene >
+      <a-assets>
+        <img id="internship" src="img/internship.png">
+        <img id="goggles" src="img/goggles.png">
+        <img id="education" src="img/education.png">
+        <img id="educationDetail" src="img/educationDetail.png">
+        <img id="internshipDetail" src="img/InternshipDetail.png">
+        <img id="interets" src="img/interets.png">
+        <img id="interetsDetail" src="img/interestDetail.png">
+        <img id="gallery" src="img/gallery.png">
+        <img id="hkust" src="img/hkustPanorama.jpg">
+        <img id="mozvr" src="img/mozvr.png">
+        <img id="zy" src="img/zy.jpeg">
+        <img id="trans" src="img/trans.png">
+        <img id="home" src="img/home.png">
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+
+      </a-assets>
+
+      
+     
+
+      <!-- Camera + cursor. -->
+      <a-entity camera look-controls>
+        <a-cursor id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 300"
+          event-set__1="_event: mouseenter; color: springgreen"
+          event-set__2="_event: mouseleave; color: black"
+          raycaster="objects: .link"></a-cursor>
+      </a-entity>
+
+      
+
+<a-entity position="0 0 -3" rotation="5 0 0" sound="on: click; src: #click-sound">
+    <a-entity id="author"
+      position="-.7 0 0.3" text="text: Ariel .Zhang; font: exo 2;  style: italic; size: 0.37; weight: bold; height: 0;" 
+      material="shader: flat; color:black;"
+     >
+      </a-entity>
+</a-entity>
+
+
+
+       <a-image id="planes" width="7" height="2.7" src="#trans" scale="1.1 1.1 1.1">
+        <a-animation attribute="position" from="0.8 -2 -12" to="0.8 -2 -5" delay="750"
+                     dur="1000"></a-animation>
+      </a-image>
+
+
+      <a-curvedimage id="education-logo" src="#education" radius="5.7" theta-length="36" height="1"
+                     position="0 2.6 -1" opacity="0.5" sound="on: click; src: #click-sound"
+                     class="link"
+                     event-set__1="_event: mousedown; scale: 1 1 1"
+                     event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+                     event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+                     event-set__4="_event: mouseleave; scale: 1 1 1"
+                     set-image="on: click; target: #planes; src: #educationDetail"
+                     update-raycaster="#cursor">
+        <a-animation attribute="rotation" from="0 10 0" to="0 200 0" delay="500"
+                     dur="1000"></a-animation>
+      </a-curvedimage>
+
+      <a-image id="interets" src="#interets" width="7" height="3.5" scale="0.3 0.3 0.3" sound="on: click; src: #click-sound"
+                     class="link"
+                     event-set__1="_event: mousedown; scale: 0.3 0.3 0.3"
+                     event-set__2="_event: mouseup; scale: 0.4 0.4 0.3"
+                     event-set__3="_event: mouseenter; scale: 0.4 0.4 0.3"
+                     event-set__4="_event: mouseleave; scale: 0.3 0.3 0.3"
+                     set-image="on: click; target: #planes; src: #interetsDetail"
+                     update-raycaster="#cursor">
+        <a-animation attribute="position" from="0 2.8 -6" to="2.25 2.8 -6" delay="1000"
+                     dur="1000"></a-animation>
+      </a-image>
+
+      <a-cylinder id="goggles" color="#101010" height="0.02" radius="0.8" sound="on: click; src: #click-sound">
+        <a-animation attribute="rotation" from="-270 0 0" to="-90 0 0" dur="750" delay="1000"
+                     fill="both"></a-animation>
+        <a-animation attribute="position" from="8 0 -9" to="8 -3.5 -9" dur="750" delay="1000"
+                     fill="both"></a-animation>
+        <a-image src="#goggles" width="2" height="1" rotation="90 0 0" position="0 -.05 0"
+                 scale=".4 .4 .4"></a-image>
+      </a-cylinder>
+
+
+      <a-curvedimage id="internship" src="#internship" radius="5.7"
+                     theta-length="18" height=".45" position="0 -0.05 0" scale=".4 .4 .4" sound="on: click; src: #click-sound"
+                     class="link"
+                     event-set__1="_event: mousedown; scale: 0.3 0.3 0.3"
+                     event-set__2="_event: mouseup; scale: 0.4 0.4 0.3"
+                     event-set__3="_event: mouseenter; scale: 0.4 0.4 0.3"
+                     event-set__4="_event: mouseleave; scale: 0.3 0.3 0.3"
+                     set-image="on: click; target: #planes; src: #internshipDetail"
+                     update-raycaster="#cursor">
+        <a-animation attribute="rotation" from="0 180 0" to="0 217 0" delay="750"
+                     dur="1000"></a-animation>
+      </a-curvedimage>
+
+
+
+      <a-curvedimage id="gallery" src="#gallery" radius="5.7" theta-length="18" height=".8"
+                     position="0.7 0.2 0.3" scale=".3 .3 .3" sound="on: click; src: #click-sound"
+                     class="link"
+                     event-set__1="_event: mousedown; scale: 0.3 0.3 0.3"
+                     event-set__2="_event: mouseup; scale: 0.4 0.4 0.3"
+                     event-set__3="_event: mouseenter; scale: 0.4 0.4 0.3"
+                     event-set__4="_event: mouseleave; scale: 0.3 0.3 0.3"
+                     set-image="on: click; target: #planes; src: #zy"
+                     update-raycaster="#cursor">
+        <a-animation attribute="rotation" from="0 180 0" to="0 130 0" delay="750"
+                     dur="1000"></a-animation>
+      </a-curvedimage>
+
+      <a-curvedimage id="home" src="#home" radius="5.7"
+                     theta-length="5" height=".25" position="0.5 0 -0.2" scale=".15 .15 .15" sound="on: click; src: #click-sound"
+                     class="link"
+                     event-set__1="_event: mousedown; scale: 0.15 0.15 0.15"
+                     event-set__2="_event: mouseup; scale: 0.2 0.2 0.15"
+                     event-set__3="_event: mouseenter; scale: 0.2 0.2 0.15"
+                     event-set__4="_event: mouseleave; scale: 0.15 0.15 0.15"
+                     set-image="on: click; target: #planes; src: #trans"
+                     update-raycaster="#cursor">
+        <a-animation attribute="rotation" from="0 100 0" to="0 150 0" delay="750"
+                     dur="1000"></a-animation>
+      </a-curvedimage>
+
+      <a-entity>
+        <a-cylinder position="0 0.5 0" radius="4" height="1.6" side="back" open-ended="true"
+                    color="#FFF" opacity="0.9"></a-cylinder>
+      </a-entity>
+
+      <!--<a-sky color="#ECECEC"></a-sky>-->
+      <a-sky id="hkust-360" radius="10" src="#hkust"></a-sky>
+
+      <a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
+      <a-light type="ambient" color="#fff"></a-light>
+    </a-scene>
+  </body>
+</html>
